@@ -7,4 +7,7 @@ public class Sertanejo {
         super(titulo, artista, duracaoSegundos);
         this.dupla=dupla;
     }
+
+    public String getDupla(){}
+    return dupla;
 }
