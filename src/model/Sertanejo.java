@@ -8,6 +8,23 @@ public class Sertanejo {
         this.dupla=dupla;
     }
 
-    public String getDupla(){}
-    return dupla;
+    public String getDupla(){
+    return dupla;}
+
+
+    @Override
+public void exibirDetalhes(){
+
+        public void exibirDetalhes() {
+            System.out.println("=== Faixa Sertanejo ===");
+            System.out.println("Título: " + getTitulo());
+            System.out.println("Artista: " + getArtista());
+            System.out.println("Duração: " + getDuracaoSegundos() + "s");
+            System.out.println("Dupla/Parceria: " + this.dupla);
+            System.out.println("=======================");
+        }
+
+
+
+    }
 }
