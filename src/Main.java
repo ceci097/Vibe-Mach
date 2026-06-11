@@ -11,4 +11,8 @@ public class Main {
 
      Scanner scanner= new Scanner (System.in);
     }
+ gerenciador.addMusica(new(Rock), "Bohemian Rapshody, Queen," 355, "Rock progressivo" )
+
+
+
 }
