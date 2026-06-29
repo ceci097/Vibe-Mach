@@ -35,10 +35,11 @@
                          executarCriacaoPlaylist(gerenciasor, scanner);
                          break;
                      case 0:
-                         Sys
-                 }
+                         System.out.println("Encerrando sistema");                 }
              }
-         }
+         } catch(InputMismatchException e){
+                System.out.println("\n[ERRO] Digite apenas números inteiros!");
+            }
         }
 
 
