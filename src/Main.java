@@ -18,7 +18,16 @@
 
          do{
              try{
-                 System.out.println()
+                 System.out.println("\n1. Cadastrar Música");
+                 System.out.println("2. Listar todas as músicas");
+                 System.out.println("3. Gerar playlist");
+                 System.out.println("0. Sair");
+                 System.out.println("Escolha uma opção: ");
+
+                 switch(opcao){
+                     case 1:
+                         ex
+                 }
              }
          }
         }
