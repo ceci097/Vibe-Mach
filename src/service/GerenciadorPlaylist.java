@@ -47,6 +47,10 @@ public void gerarPlaylist(String estilo,int qtd){
          Collection.shuffle(musicasFiltradas);
          System.out.println("\n===== Playlist gerada! vibe:"+ estilo.toUpperCase()+"======");
 
-
+         for(int i =0; i < musicasFiltradas.size(); i++){
+             Musica musicaSorteada= musicasFiltradas.get(i);
+             musicaSorteada.exibirDetalhes();
+             System.out.println("-----------------------------------");
+         }
 }
 }
