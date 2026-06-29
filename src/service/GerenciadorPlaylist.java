@@ -23,7 +23,7 @@ public class GerenciadorPlaylist {
     }
 
     public void ListarTodas(){
-        if(this.catalogo.isEmpty()){
+        if(this.catalogo.isEmpty()) {
 
         }
     }
