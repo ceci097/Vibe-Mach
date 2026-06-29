@@ -1,9 +1,9 @@
 package service;
 import exception.CatalogoVazio;
-import model.Musica;
+import model.*;
+import model.EstiloNaoEncontradoException;
+import model.QuantidadeIndisponivelException;
 import modelEstiloNaoEncontradoException;
-import model.QuantidadeIndispoNivelException;
-import model.CatalogoVazio;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,5 +30,18 @@ public void gerarPlaylist(String estilo,int qtd){
         }
 
         List<Musica> musicasFiltradas = new ArrayList<>();
+
+        for(Musica musica : this.catalogo){
+            if(musica.getClass().getSimpleName().equals(estilo)){
+                musicasFiltradas.add(musica);
+            }
+        }
+
+        if(musicasFiltradas.isEmpty()){
+            throw new EstiloNaoEncontradoException("O estilo "+ estilo + " não foi encontrado");
+        }
+         if(qtd < musicasFiltradas.size()){
+             throw new QuantidadeIndisponivelException("Qua")
+         }
 }
 }
