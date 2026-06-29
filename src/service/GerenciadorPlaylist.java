@@ -41,7 +41,12 @@ public void gerarPlaylist(String estilo,int qtd){
             throw new EstiloNaoEncontradoException("O estilo "+ estilo + " não foi encontrado");
         }
          if(qtd < musicasFiltradas.size()){
-             throw new QuantidadeIndisponivelException("Qua")
+             throw new QuantidadeIndisponivelException("Quantidade solicitada é superior ao total de faixas");
          }
+
+         Collection.shuffle(musicasFiltradas);
+         System.out.println("\n===== Playlist gerada! vibe:"+ estilo.toUpperCase()+"======");
+
+
 }
 }
