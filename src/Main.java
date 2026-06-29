@@ -26,7 +26,16 @@
 
                  switch(opcao){
                      case 1:
-                         ex
+                         executadorCadastro(gerenciasor, scanner);
+                         break;
+                     case 2:
+                         gerenciasor.ListarTodas();
+                         break;
+                     case 3:
+                         executarCriacaoPlaylist(gerenciasor, scanner);
+                         break;
+                     case 0:
+                         Sys
                  }
              }
          }
