@@ -24,12 +24,19 @@ public class GerenciadorPlaylist {
         }
     }
 public void listarTodas(){
-        if
+        if(this.catalogo.isEmpty()){
+            throw new CatalogoVazioException("Não há nenhuma música cadastrada no catálogo");
+        }
 }
 public void gerarPlaylist(String estilo,int qtd){
         if(!this.catalogo.isEmpty()){
             throw new CatalogoVazioException("Impossivel gerar playlist: o catálogo está completamente vazio");
 
+        }
+
+        for(Musica musica : this.catalogo){
+            musica.exibirDetalhes();
+            System.out.println("--------------------------");
         }
 
         List<Musica> musicasFiltradas = new ArrayList<>();

@@ -7,13 +7,13 @@
 
     public class Main {
         public static void main(String args[]) {
-            GerenciadorPlaylist gerenciasor = new GerenciadorPlaylist();
+            GerenciadorPlaylist gerenciador = new GerenciadorPlaylist();
 
             Scanner scanner = new Scanner(System.in);
-            int opção = -1;
+            int opcao = -1;
 
-            InicializadorCatalogo(gerenciador);
-            KO
+            inicializarCatalogo(gerenciador);
+
 
             System.out.println("=== Bem-vindo ao VibeMatch! ===");
 
@@ -27,13 +27,13 @@
 
                     switch (opcao) {
                         case 1:
-                            executadorCadastro(gerenciasor, scanner);
+                            executadorCadastro(gerenciador, scanner);
                             break;
                         case 2:
-                            gerenciasor.ListarTodas();
+                            gerenciador.listarTodas();
                             break;
                         case 3:
-                            executarCriacaoPlaylist(gerenciasor, scanner);
+                            executarCriacaoPlaylist(gerenciador, scanner);
                             break;
                         case 0:
                             System.out.println("Encerrando sistema");
@@ -47,12 +47,12 @@
             scanner.close();
 
 
-            private static void inicializarDadosCatalogo(GerenciadorPlaylist gerenciasor){
-                gerenciasor.adicionarMusica(new(Rock "Bohemian Rhapsody, Queen" , 355, "Rock Progressivo"));
-                gerenciasor.adicionarMusica(new(Rock "Back in Black, AC/DC", 255, "Rock Clássico"));
-                gerenciasor.adicionarMusica(new Pop("As It Was", "Hharry Styles", 255, 167));
-                gerenciasor.adicionarMusica(new Pop("Blinding Lights", "The Weeknd", 200, 171));
-                gerenciasor.adicionarMusica(new MPB("Aquarela", "Toquinho", 252, "MPB Clássica"));
+            private static void inicializarDadosCatalogo(GerenciadorPlaylist gerenciador){
+                gerenciador.adicionarMusica(new(Rock "Bohemian Rhapsody, Queen" , 355, "Rock Progressivo"));
+                gerenciador.adicionarMusica(new(Rock "Back in Black, AC/DC", 255, "Rock Clássico"));
+                gerenciador.adicionarMusica(new Pop("As It Was", "Hharry Styles", 255, 167));
+                gerenciador.adicionarMusica(new Pop("Blinding Lights", "The Weeknd", 200, 171));
+                gerenciador.adicionarMusica(new MPB("Aquarela", "Toquinho", 252, "MPB Clássica"));
 
             }
 
@@ -73,14 +73,26 @@
                 if(genero.equalsIgnoreCase("Pop")) {
                     System.out.println("BPM:");
                     int bpm = scanner.nextInt();
-                    gerenciasor.adicionarMusica(new Pop(titulo, artista, duracaoSegundos, bpm ));
+                    gerenciador.adicionarMusica(new Pop(titulo, artista, duracaoSegundos, bpm ));
 
 
                 }else if(genero.equalsIgnoreCase("MPB")){
                     System.out.print("MOvimento Cultura: ");
                     String movimento= scanner.nextLine();
-                    gerenciasor.adicionarMusica(new MPB(titulo, artista, duracaoSegundos, movimento));
+                    gerenciador.adicionarMusica(new MPB(titulo, artista, duracaoSegundos, movimento));
                 }
+                System.out.println("Música adicionada!");
+            }
+
+            public static void executarCriacaoPlayList(GerenciadorPlaylist gerensiasor, Scanner scanner){
+                System.out.println("\n--- Gerar Playlist ---");
+                System.out.print("Digite o estilo: ");
+                String estilo = scanner.nextLine();
+                System.out.print("Quantidade de músicas: ");
+                int qtd = scanner.nextInt();
+                scanner.nextLine();
+
+                gerenciador.gerarPlaylist(estilo, qtd);
             }
         }
     }
