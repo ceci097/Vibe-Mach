@@ -56,7 +56,9 @@
 
             }
 
-            public static
+            public static void executarCadastro(GerenciadorPlaylist gerenciador, Scanner scanner){
+
+            }
         }
     }
 
