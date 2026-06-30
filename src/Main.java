@@ -57,6 +57,17 @@
             }
 
             public static void executarCadastro(GerenciadorPlaylist gerenciador, Scanner scanner){
+                System.out.println("Titulo: ");
+                String titulo= scanner.nextLine();
+
+                System.out.println("Artista");
+                String artista= scanner.nextLine();
+
+                System.out.println("Duração (segundos): ");
+                scanner.nextLine();
+
+                System.out.println("Escolha o gênero: ");
+                String genero= scanner.nextLine();
 
             }
         }
