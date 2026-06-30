@@ -1,9 +1,9 @@
 package service;
-import exception.CatalogoVazio;
+import exception.CatalogoVazioException;
 import model.*;
 import model.EstiloNaoEncontradoException;
 import model.QuantidadeIndisponivelException;
-import modelEstiloNaoEncontradoException;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +13,7 @@ public class GerenciadorPlaylist {
     private List<Musica> catalogo;
 
     public GerenciadorPlaylist() {
+
         this.catalogo = new ArrayList<>();
     }
 
@@ -22,7 +23,9 @@ public class GerenciadorPlaylist {
             this.catalogo.add(m);
         }
     }
-
+public void listarTodas(){
+        if
+}
 public void gerarPlaylist(String estilo,int qtd){
         if(!this.catalogo.isEmpty()){
             throw new CatalogoVazioException("Impossivel gerar playlist: o catálogo está completamente vazio");
