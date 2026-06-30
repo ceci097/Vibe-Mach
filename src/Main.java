@@ -58,17 +58,29 @@
 
             public static void executarCadastro(GerenciadorPlaylist gerenciador, Scanner scanner){
                 System.out.println("Titulo: ");
-                String titulo= scanner.nextLine();
+                String titulo = scanner.nextLine();
 
                 System.out.println("Artista");
-                String artista= scanner.nextLine();
+                String artista = scanner.nextLine();
 
                 System.out.println("Duração (segundos): ");
                 scanner.nextLine();
 
                 System.out.println("Escolha o gênero: ");
-                String genero= scanner.nextLine();
+                String genero = scanner.nextLine();
 
+
+                if(genero.equalsIgnoreCase("Pop")) {
+                    System.out.println("BPM:");
+                    int bpm = scanner.nextInt();
+                    gerenciasor.adicionarMusica(new Pop(titulo, artista, duracaoSegundos, bpm ));
+
+
+                }else if(genero.equalsIgnoreCase("MPB")){
+                    System.out.print("MOvimento Cultura: ");
+                    String movimento= scanner.nextLine();
+                    gerenciasor.adicionarMusica(new MPB(titulo, artista, duracaoSegundos, movimento));
+                }
             }
         }
     }
