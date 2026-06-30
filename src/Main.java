@@ -48,6 +48,7 @@
 
 
             private static void inicializarDadosCatalogo(GerenciadorPlaylist gerenciador){
+                gerenciador.adicionarMusica(new(Rock, "Bohemian Rhapsody, Queen" , 355, "Rock Progressivo");
 
             }
         }
