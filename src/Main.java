@@ -47,11 +47,16 @@
             scanner.close();
 
 
-            private static void inicializarDadosCatalogo(GerenciadorPlaylist gerenciador){
+            private static void inicializarDadosCatalogo(GerenciadorPlaylist gerenciasor){
                 gerenciasor.adicionarMusica(new(Rock "Bohemian Rhapsody, Queen" , 355, "Rock Progressivo"));
                 gerenciasor.adicionarMusica(new(Rock "Back in Black, AC/DC", 255, "Rock Clássico"));
+                gerenciasor.adicionarMusica(new Pop("As It Was", "Hharry Styles", 255, 167));
+                gerenciasor.adicionarMusica(new Pop("Blinding Lights", "The Weeknd", 200, 171));
+                gerenciasor.adicionarMusica(new MPB("Aquarela", "Toquinho", 252, "MPB Clássica"));
 
             }
+
+            public static
         }
     }
 
