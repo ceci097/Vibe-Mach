@@ -40,7 +40,7 @@ public class GerenciadorPlaylist {
 
     public void gerarPlaylist(String estilo, int qtd) {
 
-        if (this.catalogo.isEmpty()) {
+        if (this.catalogo==null||catalogo.isEmpty()) {
             throw new CatalogoVazioException("Impossível gerar playlist: o catálogo está completamente vazio.");
         }
 
