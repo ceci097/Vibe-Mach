@@ -60,6 +60,7 @@ public class Main {
         String artista = scanner.nextLine();
 
         System.out.println("Duração (segundos): ");
+        int duracaoSegundos= scanner.nextInt();
         scanner.nextLine();
 
         System.out.println("Escolha o gênero: ");
