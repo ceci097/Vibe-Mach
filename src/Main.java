@@ -21,6 +21,9 @@ public class Main {
                 System.out.println("0. Sair");
                 System.out.println("Escolha uma opção: ");
 
+                opcao= scanner.nextInt();
+                scanner.nextLine();
+
                 switch (opcao) {
                     case 1:
                         executarCadastro(gerenciador, scanner);
@@ -37,6 +40,7 @@ public class Main {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("\n[ERRO] Digite apenas números inteiros!");
+                scanner.nextLine();
             }
         } while (opcao != 0);
 
