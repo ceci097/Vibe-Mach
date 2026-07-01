@@ -1,17 +1,13 @@
 package model;
 
 public class Rap extends Musica {
-    private int rimasPorMinuto;
 
-
-    public Rap(String titulo, String artista, int duracaoSegundos, int rimasPorMinuto) {
+    public Rap(String titulo, String artista, int duracaoSegundos) {
         super(titulo, artista, duracaoSegundos);
-        this.rimasPorMinuto = rimasPorMinuto;
+
     }
 
-    public int getRimasPorMinuto() {
-        return rimasPorMinuto;
-    }
+
 
     @Override
     public void exibirDetalhes() {
@@ -19,7 +15,6 @@ public class Rap extends Musica {
         System.out.println("Título: " + getTitulo());
         System.out.println("Artista: " + getArtista());
         System.out.println("Duração: " + getDuracaoSegundos() + "s");
-        System.out.println("Rimas por Minuto: " + this.rimasPorMinuto);
         System.out.println("=================");
     }
 }

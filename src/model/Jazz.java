@@ -1,16 +1,14 @@
 package model;
 
 public class Jazz extends Musica {
-    private String instrumentoSolo;
 
-    public Jazz(String titulo, String artista, int duracaoSegundos, String instrumentoSolo) {
+
+    public Jazz(String titulo, String artista, int duracaoSegundos) {
         super(titulo, artista, duracaoSegundos);
-        this.instrumentoSolo = instrumentoSolo;
+
     }
 
-    public String getInstrumentoSolo() {
-        return instrumentoSolo;
-    }
+
 
     @Override
     public void exibirDetalhes() {
@@ -18,7 +16,6 @@ public class Jazz extends Musica {
         System.out.println("Título: " + getTitulo());
         System.out.println("Artista: " + getArtista());
         System.out.println("Duração: " + getDuracaoSegundos() + "s");
-        System.out.println("Instrumento Solo: " + this.instrumentoSolo);
         System.out.println("==================");
     }
 }

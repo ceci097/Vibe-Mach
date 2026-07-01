@@ -1,15 +1,19 @@
-import service.GerenciadorPlaylist;
 import model.*;
+import service.GerenciadorPlaylist;
+import exception.CatalogoVazioException;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String args[]) {
+
+    public static void main(String[] args) {
         GerenciadorPlaylist gerenciador = new GerenciadorPlaylist();
         Scanner scanner = new Scanner(System.in);
         int opcao = -1;
 
-       inicializarCatalogo(gerenciador);
+
+        inicializarCatalogo(gerenciador);
 
         System.out.println("=== Bem-vindo ao VibeMatch! ===");
 
@@ -19,9 +23,9 @@ public class Main {
                 System.out.println("2. Listar todas as músicas");
                 System.out.println("3. Gerar playlist");
                 System.out.println("0. Sair");
-                System.out.println("Escolha uma opção: ");
+                System.out.print("Escolha uma opção: ");
 
-                opcao= scanner.nextInt();
+                opcao = scanner.nextInt();
                 scanner.nextLine();
 
                 switch (opcao) {
@@ -35,14 +39,17 @@ public class Main {
                         executarPlaylist(gerenciador, scanner);
                         break;
                     case 0:
-                        System.out.println("Encerrando sistema");
+                        System.out.println("Encerrando o sistema...");
+                        break;
+                    default:
+                        System.out.println("Opção inválida! Tente de 0 a 3.");
                         break;
                 }
             } catch (InputMismatchException e) {
-                System.out.println("\n[ERRO] Digite apenas números inteiros!");
-                scanner.nextLine();
+                System.out.println("\n[ERRO] Digite apenas números inteiros para o menu!");
+                scanner.nextLine(); // Limpa o buffer
+            } catch (RuntimeException e) {
 
-            } catch (RuntimeException e){
                 System.out.println("\n[AVISO DO SISTEMA] " + e.getMessage());
             }
         } while (opcao != 0);
@@ -50,48 +57,61 @@ public class Main {
         scanner.close();
     }
 
+    public static void inicializarCatalogo(GerenciadorPlaylist gerenciador) {
 
-    private static void inicializarCatalogo(GerenciadorPlaylist gerenciador){
-        gerenciador.adicionarMusica(new Rock ("Bohemian Rhapsody" , "Queen", 244, "Rock melancolico"));
-        gerenciador.adicionarMusica(new Rock( "Back in Black", "AC/DC", 300, "Musica triste"));
-        gerenciador.adicionarMusica(new Pop("As It Was", "Hharry Styles", 255, 167));
-        gerenciador.adicionarMusica(new Pop("Blinding Lights", "The Weeknd", 200, 171));
-        gerenciador.adicionarMusica(new MPB("Aquarela", "Toquinho", 252, "MPB Clássica"));
+        gerenciador.adicionarMusica(new Pop("As It Was", "Harry Styles", 167));
+        gerenciador.adicionarMusica(new Pop("Flowers", "Miley Cyrus", 200));
+        gerenciador.adicionarMusica(new Rock("Bohemian Rhapsody", "Queen", 355));
+        gerenciador.adicionarMusica(new Rock("Numb", "Linkin Park", 185));
+        gerenciador.adicionarMusica(new MPB("AnotaPlaca", "MD Chefe", 150));
     }
 
-    public static void executarCadastro(GerenciadorPlaylist gerenciador, Scanner scanner){
-        System.out.println("Titulo: ");
+    public static void executarCadastro(GerenciadorPlaylist gerenciador, Scanner scanner) {
+        System.out.println("\n--- Cadastro de Nova Música ---");
+
+        System.out.println("Gêneros disponíveis: Pop, MPB, Rock, Sertanejo, Eletronica");
+        System.out.print("Escolha o gênero da música: ");
+        String genero = scanner.nextLine().trim();
+
+        System.out.print("Título: ");
         String titulo = scanner.nextLine();
 
-        System.out.println("Artista");
+        System.out.print("Artista: ");
         String artista = scanner.nextLine();
 
-        System.out.println("Duração (segundos): ");
-        int duracaoSegundos= scanner.nextInt();
+        System.out.print("Duração (segundos): ");
+        int duracaoSegundos = scanner.nextInt();
         scanner.nextLine();
 
-        System.out.println("Escolha o gênero: ");
-        String genero = scanner.nextLine();
 
-        if(genero.equalsIgnoreCase("Pop")) {
-            System.out.println("BPM:");
-            int bpm = scanner.nextInt();
-            gerenciador.adicionarMusica(new Pop(titulo, artista, duracaoSegundos, bpm ));
-        } else if(genero.equalsIgnoreCase("MPB")){
-            System.out.print("Movimento Cultura: ");
-            String movimento= scanner.nextLine();
-            gerenciador.adicionarMusica(new MPB(titulo, artista, duracaoSegundos, movimento));
+        if (genero.equalsIgnoreCase("Pop")) {
+            gerenciador.adicionarMusica(new Pop(titulo, artista, duracaoSegundos));
+        } else if (genero.equalsIgnoreCase("MPB")) {
+            gerenciador.adicionarMusica(new MPB(titulo, artista, duracaoSegundos));
+        } else if (genero.equalsIgnoreCase("Rock")) {
+            gerenciador.adicionarMusica(new Rock(titulo, artista, duracaoSegundos));
+        } else if (genero.equalsIgnoreCase("Sertanejo")) {
+            gerenciador.adicionarMusica(new Sertanejo(titulo, artista, duracaoSegundos));
+        } else if (genero.equalsIgnoreCase("Eletronica")) {
+            gerenciador.adicionarMusica(new Eletronica(titulo, artista, duracaoSegundos));
+        } else {
+            System.out.println("\n[AVISO] Estilo '" + genero + "' inválido. Música não cadastrada.");
+            return;
         }
-        System.out.println("Música adicionada!");
+
+        System.out.println("Música adicionada com sucesso!");
     }
 
-    public static void executarPlaylist(GerenciadorPlaylist gerenciador, Scanner scanner){
+    public static void executarPlaylist(GerenciadorPlaylist gerenciador, Scanner scanner) {
         System.out.println("\n--- Gerar Playlist ---");
+
         System.out.print("Digite o estilo: ");
         String estilo = scanner.nextLine();
+
         System.out.print("Quantidade de músicas: ");
         int qtd = scanner.nextInt();
         scanner.nextLine();
+
 
         gerenciador.gerarPlaylist(estilo, qtd);
     }
