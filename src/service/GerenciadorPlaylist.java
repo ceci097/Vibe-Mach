@@ -12,11 +12,9 @@ import java.util.Collections;
 public class GerenciadorPlaylist {
     private List<Musica> catalogo;
 
-
     public GerenciadorPlaylist() {
         this.catalogo = new ArrayList<>();
     }
-
 
     public void adicionarMusica(Musica m) {
         if (m != null) {
@@ -25,11 +23,15 @@ public class GerenciadorPlaylist {
     }
 
 
+    private void validarCatalogoNaoVazio() {
+        if (this.catalogo.isEmpty()) {
+            throw new CatalogoVazioException("O catálogo geral de músicas está totalmente vazio! Cadastre músicas primeiro.");
+        }
+    }
+
     public void listarTodas() {
 
-        if (this.catalogo.isEmpty()) {
-            throw new CatalogoVazioException("Não há nenhuma música cadastrada no catálogo geral.");
-        }
+        validarCatalogoNaoVazio();
 
         for (Musica musica : this.catalogo) {
             musica.exibirDetalhes();
@@ -37,22 +39,16 @@ public class GerenciadorPlaylist {
         }
     }
 
-
     public void gerarPlaylist(String estilo, int qtd) {
 
-        if (this.catalogo==null||catalogo.isEmpty() || this.catalogo.size() ==0) {
-            throw new CatalogoVazioException("O catálogo geral de músicas está totalmente vazio! Cadastre músicas primeiro.");
-        }
-
+        validarCatalogoNaoVazio();
 
         List<Musica> musicasFiltradas = new ArrayList<>();
-        for(Musica musica : this.catalogo) {
-            if (musica.getClass().getSimpleName().equalsIgnoreCase(estilo)) {
+        for (Musica musica : this.catalogo) {
+            if (musica.getClass().getSimpleName().equalsIgnoreCase(estilo.trim())) {
                 musicasFiltradas.add(musica);
             }
         }
-
-
 
         if (musicasFiltradas.isEmpty()) {
             throw new EstiloNaoEncontradoException("O estilo '" + estilo + "' não foi encontrado ou não possui músicas cadastradas.");
@@ -62,17 +58,13 @@ public class GerenciadorPlaylist {
             throw new QuantidadeIndisponivelException("Quantidade solicitada (" + qtd + ") é superior ao total de faixas de " + estilo + " cadastradas (" + musicasFiltradas.size() + ").");
         }
 
-
         Collections.shuffle(musicasFiltradas);
-
 
         System.out.println("\n======= PLAYLIST GERADA: VIBE " + estilo.toUpperCase() + " =======");
         int tempoTotalSegundos = 0;
 
         for (int i = 0; i < qtd; i++) {
             Musica musicaSorteada = musicasFiltradas.get(i);
-
-
             musicaSorteada.exibirDetalhes();
             tempoTotalSegundos += musicaSorteada.getDuracaoSegundos();
             System.out.println("-----------------------------------");
