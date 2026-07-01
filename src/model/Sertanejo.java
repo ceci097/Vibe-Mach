@@ -1,6 +1,6 @@
 package model;
 
-public class Sertanejo {
+public class Sertanejo extends Musica {
     private String dupla;
 
     public Sertanejo(String titulo, String artista, int duracaoSegundos, String dupla){
