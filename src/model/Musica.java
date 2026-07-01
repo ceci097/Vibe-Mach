@@ -13,16 +13,35 @@ public abstract class Musica implements IMusica {
         this.duracaoSegundos = duracaoSegundos;
     }
 
+    public void setArtista(String artista) {
+
+        this.artista = artista;
+    }
+
+    public void setDuracaoSegundos(int duracaoSegundos) {
+        this.duracaoSegundos = duracaoSegundos;
+    }
+
+    public void setTitulo(String titulo) {
+       if(this.titulo == null || titulo.trim().isEmpty()){
+           throw new RuntimeException("O título não pode ser vazio");
+       }
+       this.titulo=titulo;
+    }
+
     public String getTitulo() {
+
         return titulo;
     }
 
     public String getArtista() {
+
         return artista;
     }
 
     @Override
     public int getDuracaoSegundos() {
+
         return duracaoSegundos;
     }
 
