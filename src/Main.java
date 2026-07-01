@@ -45,8 +45,8 @@ public class Main {
 
 
     private static void inicializarCatalogo(GerenciadorPlaylist gerenciador){
-        gerenciador.adicionarMusica(new Rock ("Bohemian Rhapsody, Queen" , 355, "Rock Progressivo"));
-        gerenciador.adicionarMusica(new Rock( "Back in Black, AC/DC", 255, "Rock Clássico"));
+        gerenciador.adicionarMusica(new Rock ("Bohemian Rhapsody, Queen" , "Queen", 244, "Rock melancolico"));
+        gerenciador.adicionarMusica(new Rock( "Back in Black, AC/DC", "AC/DC", "Rock Clássico"));
         gerenciador.adicionarMusica(new Pop("As It Was", "Hharry Styles", 255, 167));
         gerenciador.adicionarMusica(new Pop("Blinding Lights", "The Weeknd", 200, 171));
         gerenciador.adicionarMusica(new MPB("Aquarela", "Toquinho", 252, "MPB Clássica"));
