@@ -9,7 +9,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int opcao = -1;
 
-        inicializarCatalogo(gerenciador);
+       inicializarCatalogo(gerenciador);
 
         System.out.println("=== Bem-vindo ao VibeMatch! ===");
 
