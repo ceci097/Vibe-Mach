@@ -27,7 +27,7 @@
 
                     switch (opcao) {
                         case 1:
-                            executadorCadastro(gerenciador, scanner);
+                            executarCadastro(gerenciador, scanner);
                             break;
                         case 2:
                             gerenciador.listarTodas();
@@ -42,14 +42,15 @@
             } catch(InputMismatchException e){
                 System.out.println("\n[ERRO] Digite apenas números inteiros!");
             }
+        }
             while (opção != 0) ;
 
             scanner.close();
 
 
             private static void inicializarDadosCatalogo(GerenciadorPlaylist gerenciador){
-                gerenciador.adicionarMusica(new(Rock "Bohemian Rhapsody, Queen" , 355, "Rock Progressivo"));
-                gerenciador.adicionarMusica(new(Rock "Back in Black, AC/DC", 255, "Rock Clássico"));
+                gerenciador.adicionarMusica(new Rock ("Bohemian Rhapsody, Queen" , 355, "Rock Progressivo"));
+                gerenciador.adicionarMusica(new Rock( "Back in Black, AC/DC", 255, "Rock Clássico"));
                 gerenciador.adicionarMusica(new Pop("As It Was", "Hharry Styles", 255, 167));
                 gerenciador.adicionarMusica(new Pop("Blinding Lights", "The Weeknd", 200, 171));
                 gerenciador.adicionarMusica(new MPB("Aquarela", "Toquinho", 252, "MPB Clássica"));
@@ -84,7 +85,7 @@
                 System.out.println("Música adicionada!");
             }
 
-            public static void executarCriacaoPlayList(GerenciadorPlaylist gerensiasor, Scanner scanner){
+            public static void executarCriacaoPlayList(GerenciadorPlaylist gerenciador, Scanner scanner){
                 System.out.println("\n--- Gerar Playlist ---");
                 System.out.print("Digite o estilo: ");
                 String estilo = scanner.nextLine();
@@ -94,7 +95,7 @@
 
                 gerenciador.gerarPlaylist(estilo, qtd);
             }
-        }
+
     }
 
 
