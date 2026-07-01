@@ -13,7 +13,7 @@ public class Main {
         int opcao = -1;
 
 
-        inicializarCatalogo(gerenciador);
+        //inicializarCatalogo(gerenciador);
 
         System.out.println("=== Bem-vindo ao VibeMatch! ===");
 
