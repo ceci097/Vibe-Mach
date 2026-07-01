@@ -41,6 +41,9 @@ public class Main {
             } catch (InputMismatchException e) {
                 System.out.println("\n[ERRO] Digite apenas números inteiros!");
                 scanner.nextLine();
+
+            } catch (RuntimeException e){
+                System.out.println("\n[AVISO DO SISTEMA] " + e.getMessage());
             }
         } while (opcao != 0);
 
