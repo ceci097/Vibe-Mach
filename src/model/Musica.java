@@ -14,8 +14,9 @@ public abstract class Musica implements IMusica {
     }
 
     public void setArtista(String artista) {
-
-        this.artista = artista;
+        if(this.artista==null|| artista.trim().isEmpty()){
+            throw new RuntimeException("O artista não pode ser vazio")
+        }
     }
 
     public void setDuracaoSegundos(int duracaoSegundos) {
