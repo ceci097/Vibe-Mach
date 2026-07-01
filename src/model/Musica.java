@@ -25,6 +25,7 @@ public abstract class Musica implements IMusica {
         if(this.duracaoSegundos<=0){
             throw new RuntimeException("A duração deve ser maior que zero");
         }
+        this.duracaoSegundos=duracaoSegundos;
     }
 
     public void setTitulo(String titulo) {
