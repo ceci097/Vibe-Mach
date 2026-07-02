@@ -1,74 +1,65 @@
-```mermaid
 classDiagram
-    class IMusica {
-        <<interface>>
-        +exibirDetalhes() void
-        +getDuracaoSegundos() int
-    }
+class IMusica {
+<<interface>>
++exibirDetalhes() void
++getDuracaoSegundos() int
+}
 
     class Musica {
         <<abstract>>
         -titulo: String
- -artista: String
+        -artista: String
         -duracaoSegundos: int
+        +Musica(titulo: String, artista: String, duracaoSegundos: int)
         +getTitulo() String
+        +setTitulo(titulo: String) void
         +getArtista() String
+        +setArtista(artista: String) void
         +getDuracaoSegundos() int
-        +exibirDetalhes() void
+        +setDuracaoSegundos(duracaoSegundos: int) void
+        +exibirDetalhes() void*
     }
 
     class Rock {
-        -subgenero: String
-        +Rock(titulo: String, artista: String, duracao: int, subgenero: String)
-        +getSubgenero() String
+        +Rock(titulo: String, artista: String, duracaoSegundos: int)
         +exibirDetalhes() void
     }
 
     class Pop {
-        -bpm: int
-        +Pop(titulo: String, artista: String, duracao: int, bpm: int)
-        +getBpm() int
+        +Pop(titulo: String, artista: String, duracaoSegundos: int)
         +exibirDetalhes() void
     }
 
     class Eletronica {
-        -tipoSintetizador: String
-        +Eletronica(titulo: String, artista: String, duracao: int, tipoSintetizador: String)
-        +getTipoSintetizador() String
+        +Eletronica(titulo: String, artista: String, duracaoSegundos: int)
         +exibirDetalhes() void
     }
 
     class Sertanejo {
-        -dupla: String
-        +Sertanejo(titulo: String, artista: String, duracao: int, dupla: String)
-        +getDupla() String
-       +exibirDetalhes() void
+        +Sertanejo(titulo: String, artista: String, duracaoSegundos: int)
+        +exibirDetalhes() void
     }
 
     class Jazz {
-        -instrumentoSolo: String
-        +Jazz(titulo: String, artista: String, duracao: int, instrumentoSolo: String)
-        +getInstrumentoSolo() String
+        +Jazz(titulo: String, artista: String, duracaoSegundos: int)
         +exibirDetalhes() void
     }
 
     class Rap {
-        -rimasPorMinuto: int
-        +Rap(titulo: String, artista: String, duracao: int, rimasPorMinuto: int)
-        +getRimasPorMinuto() int
-+exibirDetalhes() void
+        +Rap(titulo: String, artista: String, duracaoSegundos: int)
+        +exibirDetalhes() void
     }
 
     class MPB {
-        -movimento: String
-        +MPB(titulo: String, artista: String, duracao: int, movimento: String)
-        +getMovimento() String
+        +MPB(titulo: String, artista: String, duracaoSegundos: int)
         +exibirDetalhes() void
     }
 
     class GerenciadorPlaylist {
         -catalogo: List~Musica~
+        +GerenciadorPlaylist()
         +adicionarMusica(m: Musica) void
+        -validarCatalogoNaoVazio() void
         +listarTodas() void
         +gerarPlaylist(estilo: String, qtd: int) void
     }
