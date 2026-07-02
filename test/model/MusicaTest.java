@@ -8,5 +8,10 @@ public class MusicaTest {
     private Musica musica;
 
     @BeforeEach
+    void setUp(){
+        musica= new Pop("As it was", "Harry Styles", 167);
 
+    }
+    @Test
+    void TesteAlterarDadosComSucesso()
 }
