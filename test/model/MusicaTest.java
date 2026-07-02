@@ -26,6 +26,11 @@ public class MusicaTest {
     @Test
 
     void testeValidacaoNegativa(){
+        assertThrows(IllegalArgumentException.class, () -> {
+            musica.setDuracaoSegundos(-10);
+        });
+    }
 
+    @Test
     }
 }
