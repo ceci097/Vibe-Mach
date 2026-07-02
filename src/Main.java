@@ -47,7 +47,7 @@ public class Main {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("\n[ERRO] Digite apenas números inteiros para o menu!");
-                scanner.nextLine(); // Limpa o buffer
+                scanner.nextLine();
             } catch (RuntimeException e) {
 
                 System.out.println("\n[AVISO DO SISTEMA] " + e.getMessage());
@@ -70,6 +70,7 @@ public class Main {
         System.out.println("\n--- Cadastro de Nova Música ---");
 
         System.out.println("Gêneros disponíveis: Pop, MPB, Rock, Sertanejo, Eletronica");
+        String genero="";
         System.out.print("Escolha o gênero da música: ");
         String genero = scanner.nextLine().trim();
 
