@@ -13,5 +13,8 @@ public class MusicaTest {
 
     }
     @Test
-    void TesteAlterarDadosComSucesso()
+    void TesteAlterarDadosComSucesso(){
+        musica.setTitulo("Novo título");
+        musica.setArtista("Novo artista");
+    }
 }
