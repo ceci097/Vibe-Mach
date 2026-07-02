@@ -8,15 +8,16 @@ public class MusicaTest {
     private Musica musica;
 
     @BeforeEach
-    void setUp(){
-        musica= new Pop("As it was", "Harry Styles", 167);
-
+    void setUp() {
+        musica = new Pop("As It Was", "Harry Styles", 167);
     }
+
     @Test
-    void TesteAlterarDadosComSucesso(){
-        musica.setTitulo("Novo título");
-        musica.setArtista("Novo artista");
-        musica.setDuracaoSegundos(167);
+    void TesteAlterarDadosComSucesso() {
+
+        musica.setTitulo("Novo Título");
+        musica.setArtista("Novo Artista");
+        musica.setDuracaoSegundos(180);
 
         assertEquals("Novo Título", musica.getTitulo());
         assertEquals("Novo Artista", musica.getArtista());
@@ -24,16 +25,14 @@ public class MusicaTest {
     }
 
     @Test
-
-    void testeValidacaoNegativa(){
+    void testeValidacaoNegativa() {
         assertThrows(IllegalArgumentException.class, () -> {
             musica.setDuracaoSegundos(-10);
         });
     }
 
     @Test
-
-    void testeTituloVazio(){
+    void testeTituloVazio() {
         assertThrows(IllegalArgumentException.class, () -> {
             musica.setTitulo("   ");
         });
