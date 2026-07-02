@@ -22,4 +22,10 @@ public class MusicaTest {
         assertEquals("Novo Artista", musica.getArtista());
         assertEquals(180, musica.getDuracaoSegundos());
     }
+
+    @Test
+
+    void testeValidacaoNegativa(){
+
+    }
 }
