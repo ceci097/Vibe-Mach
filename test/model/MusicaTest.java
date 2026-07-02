@@ -16,5 +16,10 @@ public class MusicaTest {
     void TesteAlterarDadosComSucesso(){
         musica.setTitulo("Novo título");
         musica.setArtista("Novo artista");
+        musica.setDuracaoSegundos(167);
+
+        assertEquals("Novo Título", musica.getTitulo());
+        assertEquals("Novo Artista", musica.getArtista());
+        assertEquals(180, musica.getDuracaoSegundos());
     }
 }
