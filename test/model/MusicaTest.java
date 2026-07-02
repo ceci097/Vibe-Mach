@@ -34,6 +34,8 @@ public class MusicaTest {
     @Test
 
     void testeTituloVazio(){
-
+        assertThrows(IllegalArgumentException.class, () -> {
+            musica.setTitulo("   ");
+        });
     }
 }
